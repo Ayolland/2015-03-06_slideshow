@@ -10,16 +10,15 @@ require_relative 'models/slide.rb'
 
 get "/" do
   @slide = Slide.all.sample
-  binding.pry
   erb :'slideshow'
 end
 
 get "/next/:current_stack" do
-  Slide.find(params[:current_stack]).next.to_json
+  Slide.find(params[:current_stack]).next.to_hash.to_json
 end
 
-get "/back/:current_stack" do
-  Slide.find(params[:current_stack]).prev.to_json
+get "/prev/:current_stack" do
+  Slide.find(params[:current_stack]).prev.to_hash.to_json
 end
 
 get "/admin" do

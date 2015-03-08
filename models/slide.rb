@@ -3,7 +3,6 @@ class Slide
   attr_accessor :title, :body, :id, :stack
   
   def initialize(options)
-    binding.pry
     @title  = options[:title] || options["title"]
     @body   = options[:body]  || options["body"]
     @stack  = options[:stack] || options["stack"]
@@ -21,12 +20,12 @@ class Slide
   
   def next #returns the next slide object
     results = DATABASE.execute("SELECT * FROM slides WHERE stack > #{@stack}")
-    Slide.new(results[0])  || Slide.all[0]
+    results != [] ? Slide.new(results[0]) : Slide.all[0]
   end
   
-  def previous #returns the previous slide object
+  def prev #returns the previous slide object
     results = DATABASE.execute("SELECT * FROM slides WHERE stack < #{@stack}")
-    Slide.new(results.pop)  || Slide.all.pop
+    results != [] ? Slide.new(results.pop) : Slide.all.pop
   end
   
   def insert #Adds a Slide object into the database if the @id is nil

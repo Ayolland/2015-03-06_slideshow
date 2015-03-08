@@ -1,11 +1,11 @@
 <div class="big_wrapper">
   <div class="spacer">
-    <form id="hidden"><input type="hidden" id="current_stack" value="<%= @slide.stack %>"></form>
+    <form id="hider"><input type="hidden" id="current_stack" value="<%= @slide.stack %>"></form>
     <div class="slide side">
       <button id="next_button">&#60;</button>
     </div><div class="slide main">
       <h1 class="slide title" id="slide_title"><%= @slide.title %></h1>
-      <p class="slide body" title="slide_body">
+      <p class="slide body" id="slide_body">
         <%= @slide.body %>
       </p>
     </div><div class="slide side">
