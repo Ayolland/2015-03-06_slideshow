@@ -5,6 +5,8 @@ body{
 div.spacer{
   width:80%;
   height: 60vw;
+  max-width:1000px;
+  max-height:750px;
   margin: auto;
   padding-top: 5vw;
 }

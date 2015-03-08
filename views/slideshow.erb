@@ -2,14 +2,14 @@
   <div class="spacer">
     <form id="hider"><input type="hidden" id="current_stack" value="<%= @slide.stack %>"></form>
     <div class="slide side">
-      <button id="next_button">&#60;</button>
+      <button id="next_button" onclick="showPrevSlide();">&#60;</button>
     </div><div class="slide main">
       <h1 class="slide title" id="slide_title"><%= @slide.title %></h1>
       <p class="slide body" id="slide_body">
         <%= @slide.body %>
       </p>
     </div><div class="slide side">
-      <button id="prev_button">&#62;</button>
+      <button id="prev_button" onclick="showPrevSlide();">&#62;</button>
     </div>
   </div>
 </div>
